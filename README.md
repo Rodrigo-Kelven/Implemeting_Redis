@@ -10,4 +10,16 @@ Este projeto é uma API RESTful construída com FastAPI, utilizando SQLite como 
 - **SQLAlchemy**: Um ORM (Object Relational Mapper) para interagir com o banco de dados SQLite.
 - **Pydantic**: Para validação de dados e serialização.
 
-## Estrutura do Projeto
+
+## Pré-requisitos
+
+Antes de começar, você precisará ter o Docker e o Docker Compose instalados em sua máquina.
+
+## Instalação
+
+1. Clone este repositório:
+
+   ```bash
+   git clone https://github.com/Rodrigo-Kelven/Implemeting_Redis
+   cd Implemeting_Redis
+   docker-compose up --build
