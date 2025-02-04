@@ -23,3 +23,74 @@ Antes de começar, você precisará ter o Docker e o Docker Compose instalados e
    git clone https://github.com/Rodrigo-Kelven/Implemeting_Redis
    cd Implemeting_Redis
    docker-compose up --build
+
+   
+## Endpoints
+### Criar um Item
+
+- URL: /items/
+
+- Método: POST
+
+## Corpo da Requisição:
+
+
+
+    {
+
+    "name": "Item 1",
+
+    "description": "Descrição do Item 1"
+
+    }
+
+## Resposta:
+
+
+    {
+
+    "name": "Item 1",
+
+    "description": "Descrição do Item 1"
+
+    }
+
+## Ler um Item
+
+- URL: /items/{name}
+
+- Método: GET
+
+#### Parâmetros:
+- name: O nome do item que você deseja recuperar.
+
+### Resposta:
+
+
+
+    {
+
+    "name": "Item 1",
+
+    "description": "Descrição do Item 1"
+
+    }
+
+# Testando a API
+
+### Você pode usar ferramentas como Postman ou cURL para testar a API.
+#### Exemplo de Requisição com cURL
+### Criar um Item
+
+
+- curl -X POST "http://localhost:8000/items/" -H "Content-Type: application/json" -d '{"name": "Item 1", "description": "Descrição do Item 1"}'
+
+### Ler um Item
+
+- curl -X GET "http://localhost:8000/items/Item%201"
+
+# Contribuições
+Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir um issue ou enviar um pull request.;)
+
+## Autores
+- [@Rodrigo_Kelven](https://github.com/Rodrigo-Kelven)
