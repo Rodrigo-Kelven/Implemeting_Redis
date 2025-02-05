@@ -6,6 +6,8 @@ import json
 
 app = FastAPI()
 
+# a simplicidade e agilidade desse db é incrivel
+
 class Item(BaseModel):
     name: str
     description: str
