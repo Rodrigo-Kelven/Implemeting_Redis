@@ -24,20 +24,20 @@ async def create_item(item: Item):
 
 @app.get("/items/{name}", response_model=Item)
 async def read_item(name: str):
-    # Check cache first
+    # Verifica primeiro se esta em caching
     cached_item = redis_client.get(f"item:{name}")
     if cached_item:
-        print("Item retrieved from cache")
+        print("Item retrieved from cache") # para mostrar que o redis esta realmente funcionando e que o dado foi pego em caching
         return json.loads(cached_item)
 
-    # If not in cache, query the database
+    # Se não estiver no cache, consulte o banco de dados
     item = await collection.find_one({"name": name})
     if item is None:
         raise HTTPException(status_code=404, detail="Item not found")
 
-    # Serialize the item for caching
+    # Serialize o item para armazenamento em cache
     serialized_item = serialize_item(item)
 
-    # Cache the result
+    # Resultado do caching
     redis_client.set(f"item:{name}", json.dumps(serialized_item))
     return serialized_item
